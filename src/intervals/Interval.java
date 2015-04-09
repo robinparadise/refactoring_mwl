@@ -21,7 +21,7 @@ public class Interval {
 	}
 
 	public boolean includes(double value) {
-		switch (opening) {
+		switch (getOpening()) {
 		case BOTH_OPENED:
 			return minimum < value && value < maximum;
 		case LEFT_OPENED:
@@ -39,7 +39,7 @@ public class Interval {
 	public boolean includes(Interval interval) {
 		boolean minimumIncluded = this.includes(interval.minimum);
 		boolean maximumIncluded = this.includes(interval.maximum);
-		switch (opening) {
+		switch (getOpening()) {
 		case BOTH_OPENED:
 			switch (interval.opening) {
 			case BOTH_OPENED:
@@ -119,7 +119,7 @@ public class Interval {
 
 	public boolean intersectsWith(Interval interval) {
 		if (minimum == interval.maximum) {
-			switch (opening) {
+			switch (getOpening()) {
 			case BOTH_OPENED:
 			case LEFT_OPENED:
 				return false;
@@ -133,7 +133,7 @@ public class Interval {
 			}
 		}
 		if (maximum == interval.minimum) {
-			switch (opening) {
+			switch (getOpening()) {
 			case BOTH_OPENED:
 			case RIGHT_OPENED:
 				return false;
