@@ -28,7 +28,7 @@ public class Interval {
 
 	public Interval(double minimum, double maximum, Opening opening) {
 		setMinimum(minimum);
-		this.maximum = maximum;
+		setMaximum(maximum);
 		this.opening = opening;
 	}
 
