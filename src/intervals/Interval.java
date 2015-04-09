@@ -9,6 +9,10 @@ public class Interval {
 	public Opening getOpening() {
 		return opening;
 	}
+	
+	public double getMinimum() {
+		return minimum;
+	}
 
 	public Interval(double minimum, double maximum, Opening opening) {
 		this.minimum = minimum;
