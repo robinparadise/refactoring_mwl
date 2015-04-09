@@ -17,6 +17,10 @@ public class Interval {
 	public void setMinimum(double minimum) {
 		this.minimum = minimum;
 	}
+	
+	public double getMaximum() {
+		return maximum;
+	}
 
 	public Interval(double minimum, double maximum, Opening opening) {
 		setMinimum(minimum);
