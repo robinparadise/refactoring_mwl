@@ -25,19 +25,19 @@ public class Interval {
 	}
 
 	public double midPoint() {
-		return (maximum + minimum) / 2;
+		return (maximum + getMinimum()) / 2;
 	}
 
 	public boolean includes(double value) {
 		switch (getOpening()) {
 		case BOTH_OPENED:
-			return minimum < value && value < maximum;
+			return getMinimum() < value && value < maximum;
 		case LEFT_OPENED:
-			return minimum < value && value <= maximum;
+			return getMinimum() < value && value <= maximum;
 		case RIGHT_OPENED:
-			return minimum <= value && value < maximum;
+			return getMinimum() <= value && value < maximum;
 		case UNOPENED:
-			return minimum <= value && value <= maximum;
+			return getMinimum() <= value && value <= maximum;
 		default:
 			assert false;
 			return false;
@@ -51,10 +51,10 @@ public class Interval {
 		case BOTH_OPENED:
 			switch (interval.opening) {
 			case BOTH_OPENED:
-				return (minimumIncluded || minimum == interval.minimum)
+				return (minimumIncluded || getMinimum() == interval.minimum)
 						&& (maximumIncluded || maximum == interval.maximum);
 			case LEFT_OPENED:
-				return (minimumIncluded || minimum == interval.minimum)
+				return (minimumIncluded || getMinimum() == interval.minimum)
 						&& (maximumIncluded);
 			case RIGHT_OPENED:
 				return (minimumIncluded)
@@ -86,16 +86,16 @@ public class Interval {
 		case RIGHT_OPENED:
 			switch (interval.opening) {
 			case BOTH_OPENED:
-				return (minimumIncluded || minimum == interval.minimum)
+				return (minimumIncluded || getMinimum() == interval.minimum)
 						&& (maximumIncluded || maximum == interval.maximum);
 			case LEFT_OPENED:
-				return (minimumIncluded || minimum == interval.minimum)
+				return (minimumIncluded || getMinimum() == interval.minimum)
 						&& (maximumIncluded);
 			case RIGHT_OPENED:
-				return (minimumIncluded || minimum == interval.minimum)
+				return (minimumIncluded || getMinimum() == interval.minimum)
 						&& (maximumIncluded || maximum == interval.maximum);
 			case UNOPENED:
-				return (minimumIncluded || minimum == interval.minimum)
+				return (minimumIncluded || getMinimum() == interval.minimum)
 						&& (maximumIncluded);
 			default:
 				assert false;
