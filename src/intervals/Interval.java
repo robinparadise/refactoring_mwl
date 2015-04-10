@@ -1,10 +1,11 @@
 package intervals;
 
-public class Interval {
+public abstract class Interval {
 
 	private double minimum;
 	private double maximum;
 	private Opening opening;
+	
 	
 	public Opening getOpening() {
 		return opening;
@@ -36,21 +37,7 @@ public class Interval {
 		return (getMaximum() + getMinimum()) / 2;
 	}
 
-	public boolean includes(double value) {
-		switch (getOpening()) {
-		case BOTH_OPENED:
-			return getMinimum() < value && value < getMaximum();
-		case LEFT_OPENED:
-			return getMinimum() < value && value <= getMaximum();
-		case RIGHT_OPENED:
-			return getMinimum() <= value && value < getMaximum();
-		case UNOPENED:
-			return getMinimum() <= value && value <= getMaximum();
-		default:
-			assert false;
-			return false;
-		}
-	}
+	public abstract boolean includes(double value);
 
 	public boolean includes(Interval interval) {
 		boolean minimumIncluded = this.includes(interval.getMinimum());
