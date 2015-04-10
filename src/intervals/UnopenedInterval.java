@@ -21,10 +21,10 @@ public class UnopenedInterval extends Interval {
 			return (minimumIncluded || getMinimum() == interval.getMinimum())
 					&& (maximumIncluded || getMaximum() == interval.getMaximum());
 		case RIGHT_OPENED:
-			return (minimumIncluded)
+			return (minimumIncluded || getMinimum() == interval.getMinimum())
 					&& (maximumIncluded || getMaximum() == interval.getMaximum());
 		case UNOPENED:
-			return (minimumIncluded)
+			return (minimumIncluded || getMinimum() == interval.getMinimum())
 					&& (maximumIncluded || getMaximum() == interval.getMaximum());
 		default:
 			assert false;
