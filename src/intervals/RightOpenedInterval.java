@@ -19,13 +19,13 @@ public class RightOpenedInterval extends Interval {
 					&& (maximumIncluded || getMaximum() == interval.getMaximum());
 		case LEFT_OPENED:
 			return (minimumIncluded || getMinimum() == interval.getMinimum())
-					&& (maximumIncluded || getMaximum() == interval.getMaximum());
+					&& (maximumIncluded);
 		case RIGHT_OPENED:
-			return (minimumIncluded)
+			return (minimumIncluded || getMinimum() == interval.getMinimum())
 					&& (maximumIncluded || getMaximum() == interval.getMaximum());
 		case UNOPENED:
-			return (minimumIncluded)
-					&& (maximumIncluded || getMaximum() == interval.getMaximum());
+			return (minimumIncluded || getMinimum() == interval.getMinimum())
+					&& (maximumIncluded);
 		default:
 			assert false;
 			return false;
