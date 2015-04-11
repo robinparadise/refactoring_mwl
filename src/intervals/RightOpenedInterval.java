@@ -9,43 +9,39 @@ public class RightOpenedInterval extends Interval {
 	public boolean includes(double value) {
 		return getMinimum() <= value && value < getMaximum();
 	}
-	
+
 	public boolean includes(Interval interval) {
 		return interval.isIncluded(this);
 	}
-	
+
 	@Override
 	public boolean isIncluded(BothOpenedInterval interval) {
-		boolean minimumIncluded = this.includes(interval.getMinimum());
-		boolean maximumIncluded = this.includes(interval.getMaximum());
-		return (minimumIncluded || getMinimum() == interval.getMinimum())
-				&& (maximumIncluded || getMaximum() == interval
+		return (interval.includes(getMinimum()))
+				&& (interval.includes(getMaximum()) || getMaximum() == interval
 						.getMaximum());
 	}
 
 	@Override
 	public boolean isIncluded(LeftOpenedInterval interval) {
-		boolean minimumIncluded = this.includes(interval.getMinimum());
-		boolean maximumIncluded = this.includes(interval.getMaximum());
-		return (minimumIncluded || getMinimum() == interval.getMinimum())
-				&& (maximumIncluded);
+		return (interval.includes(getMinimum()))
+				&& (interval.includes(getMaximum()) || getMaximum() == interval
+						.getMaximum());
 	}
 
 	@Override
 	public boolean isIncluded(RightOpenedInterval interval) {
-		boolean minimumIncluded = this.includes(interval.getMinimum());
-		boolean maximumIncluded = this.includes(interval.getMaximum());
-		return (minimumIncluded || getMinimum() == interval.getMinimum())
-				&& (maximumIncluded || getMaximum() == interval
+		return (interval.includes(getMinimum()) || getMinimum() == interval
+				.getMinimum())
+				&& (interval.includes(getMaximum()) || getMaximum() == interval
 						.getMaximum());
 	}
 
 	@Override
 	public boolean isIncluded(UnopenedInterval interval) {
-		boolean minimumIncluded = this.includes(interval.getMinimum());
-		boolean maximumIncluded = this.includes(interval.getMaximum());
-		return (minimumIncluded || getMinimum() == interval.getMinimum())
-				&& (maximumIncluded);
+		return (interval.includes(getMinimum()) || getMinimum() == interval
+				.getMinimum())
+				&& (interval.includes(getMaximum()) || getMaximum() == interval
+						.getMaximum());
 	}
 
 	public boolean intersectsWith(Interval interval) {
