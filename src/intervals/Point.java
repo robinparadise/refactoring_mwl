@@ -2,10 +2,14 @@ package intervals;
 
 public class Point {
 	
-	private double number;
+	private double point;
 
-	public Point(double number) {
-		this.number = number;
+	public Point(double point) {
+		this.point = point;
+	}
+	
+	public double get() {
+		return point;
 	}
 
 }
