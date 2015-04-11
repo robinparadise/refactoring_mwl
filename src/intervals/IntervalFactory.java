@@ -3,17 +3,17 @@ package intervals;
 
 public class IntervalFactory {
 
-	public static Interval getInterval(Point minimum, Point maximum, Opening opening) {
+	public static Interval getInterval(double minimum, double maximum, Opening opening) {
 	    
     	switch (opening) {
             case BOTH_OPENED:
-                return new BothOpenedInterval(minimum, maximum);
+                return new BothOpenedInterval(new Point(minimum), new Point(maximum));
             case LEFT_OPENED:
-                return new LeftOpenedInterval(minimum, maximum);
+                return new LeftOpenedInterval(new Point(minimum), new Point(maximum));
             case RIGHT_OPENED:
-                return new RightOpenedInterval(minimum, maximum);
+                return new RightOpenedInterval(new Point(minimum), new Point(maximum));
             case UNOPENED:
-                return new UnopenedInterval(minimum, maximum);
+                return new UnopenedInterval(new Point(minimum), new Point(maximum));
             default:
                 throw new IllegalArgumentException("Incorrect type code");
         }
