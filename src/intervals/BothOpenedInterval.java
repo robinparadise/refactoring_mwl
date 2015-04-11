@@ -2,7 +2,7 @@ package intervals;
 
 public class BothOpenedInterval extends Interval {
 
-	public BothOpenedInterval(double minimum, double maximum) {
+	public BothOpenedInterval(Point minimum, Point maximum) {
 		super(minimum, maximum);
 	}
 
