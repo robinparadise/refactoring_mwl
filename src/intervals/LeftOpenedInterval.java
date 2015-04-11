@@ -2,8 +2,8 @@ package intervals;
 
 public class LeftOpenedInterval extends Interval {
 
-	public LeftOpenedInterval(double minimum, double maximum, Opening opening) {
-		super(minimum, maximum, opening);
+	public LeftOpenedInterval(double minimum, double maximum) {
+		super(minimum, maximum);
 	}
 
 	public boolean includes(double value) {
