@@ -50,17 +50,32 @@ public abstract class Interval {
 	public abstract boolean isIncluded(UnopenedInterval interval);
 	
 	public abstract boolean intersectsWith(Interval interval);
+	
+	public boolean intersected(LeftOpenedInterval interval){
+		return false;
+	}
+	
+	public boolean intersected(RightOpenedInterval interval){
+		return false;
+	}
 
+	public boolean intersectedMinimum(UnopenedInterval interval) {
+		return false;
+	}
+	
+	public boolean intersectedMaximum(UnopenedInterval interval) {
+		return false;
+	}
+	
 	@Override
 	public String toString() {
-		// TODO
 		return null;
 	}
 
 	@Override
 	public boolean equals(Object object) {
-		// TODO
 		return false;
 	}
+
 
 }
