@@ -43,11 +43,23 @@ public class LeftOpenedInterval extends Interval {
 			return false;
 		}
 		if (getMaximum() == interval.getMinimum()) {
-			return interval.getOpening() == Opening.RIGHT_OPENED
-					|| interval.getOpening() == Opening.UNOPENED;
+			return interval.intersected(this);
 		}
 		return this.includes(interval.getMinimum())
 				|| this.includes(interval.getMaximum());
+	}
+	
+	public boolean intersected(RightOpenedInterval interval) {
+		return true;
+	}
+	
+	public boolean intersected(UnopenedInterval interval) {
+		return true;
+	}
+	
+	@Override
+	public boolean intersectedMinimum(UnopenedInterval interval){
+		return true;
 	}
 
 }
