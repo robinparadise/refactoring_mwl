@@ -1,5 +1,5 @@
 package intervals;
 
-public class ExactPoint {
+public class ExactPoint extends Point {
 
 }

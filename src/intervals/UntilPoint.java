@@ -1,5 +1,5 @@
 package intervals;
 
-public class UntilPoint {
+public class UntilPoint extends Point {
 
 }
